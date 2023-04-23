@@ -1,9 +1,10 @@
 const express = require('express');
 const app = express();
+const cors = require("cors");
 const {randomBytes} = require('crypto');
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
-
+app.use(cors());
 const commentsByPostId = {};
 
 app.get('/posts/:id/comments', (req, res) => {
