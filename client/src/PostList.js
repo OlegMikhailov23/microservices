@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import CommentCreate from "./CommentCreate";
 import { CommentList } from './CommentLIst';
+import { home } from './consts/urls';
 
 let didInit = false;
 
@@ -9,7 +10,7 @@ const PostList = () => {
   const [posts, setPosts] = useState({});
 
   const fetchPosts = async () => {
-    const res = await axios.get("//localhost:4002/posts");
+    const res = await axios.get(`//${home}/posts`);
     setPosts(res.data);
   }
 
